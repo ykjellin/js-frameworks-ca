@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Cart from "./Cart";
 
@@ -15,13 +16,13 @@ const Title = styled.h1`
   margin-right: auto;
 `;
 
-const Nav = styled.nav<{ isOpen: boolean }>`
+const StyledNav = styled.nav<{ $isOpen: boolean }>`
   display: flex;
-  gap: 1.5rem; /* Increase space between links */
-  margin-right: 2rem; /* Create space from the cart */
+  gap: 1.5rem;
+  margin-right: 2rem;
 
   @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
     flex-direction: column;
     background: #282c34;
     position: absolute;
@@ -32,24 +33,29 @@ const Nav = styled.nav<{ isOpen: boolean }>`
   }
 `;
 
-const NavLink = styled.a`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: white;
   font-size: 1rem;
 
-  &:hover {
+  &.active {
+    font-weight: bold;
     text-decoration: underline;
+  }
+
+  &:hover {
+    color: lightgray;
   }
 `;
 
 const ActionsWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Increase space between icons */
+  gap: 1.5rem;
   margin-left: auto;
 `;
 
-const HamburgerIcon = styled.div<{ isOpen: boolean }>`
+const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
   display: none;
   flex-direction: column;
   cursor: pointer;
@@ -66,17 +72,17 @@ const HamburgerIcon = styled.div<{ isOpen: boolean }>`
     display: flex;
 
     div:nth-child(1) {
-      transform: ${({ isOpen }) =>
-        isOpen ? "rotate(45deg) translateY(6px)" : "none"};
+      transform: ${({ $isOpen }) =>
+        $isOpen ? "rotate(45deg) translateY(6px)" : "none"};
     }
 
     div:nth-child(2) {
-      opacity: ${({ isOpen }) => (isOpen ? 0 : 1)};
+      opacity: ${({ $isOpen }) => ($isOpen ? 0 : 1)};
     }
 
     div:nth-child(3) {
-      transform: ${({ isOpen }) =>
-        isOpen ? "rotate(-45deg) translateY(-6px)" : "none"};
+      transform: ${({ $isOpen }) =>
+        $isOpen ? "rotate(-45deg) translateY(-6px)" : "none"};
     }
   }
 `;
@@ -91,15 +97,18 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <Title>My Website</Title>
 
-      <Nav isOpen={isOpen}>
-        <NavLink href="#home">Home</NavLink>
-        <NavLink href="#about">About</NavLink>
-        <NavLink href="#contact">Contact</NavLink>
-      </Nav>
+      <StyledNav $isOpen={isOpen}>
+        <StyledLink to="/" end>
+          Home
+        </StyledLink>
+        <StyledLink to="/product/1">Product</StyledLink>
+        <StyledLink to="/cart">Cart</StyledLink>
+        <StyledLink to="/contact">Contact</StyledLink>
+      </StyledNav>
 
       <ActionsWrapper>
         <Cart itemCount={cartItemCount} />
-        <HamburgerIcon isOpen={isOpen} onClick={toggleMenu}>
+        <HamburgerIcon $isOpen={isOpen} onClick={toggleMenu}>
           <div />
           <div />
           <div />
