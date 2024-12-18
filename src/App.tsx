@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
+import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
@@ -10,17 +10,56 @@ import ContactPage from "./pages/ContactPage";
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout-success" element={<CheckoutSuccessPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<h2>404 - Page Not Found</h2>} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <HomePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/product/:id"
+          element={
+            <Layout>
+              <ProductPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Layout>
+              <CartPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/checkout-success"
+          element={
+            <Layout>
+              <CheckoutSuccessPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <Layout>
+              <ContactPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <h2>404 - Page Not Found</h2>
+            </Layout>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };
