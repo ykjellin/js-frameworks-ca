@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import ProductCard, { ProductCardProps } from "../components/ProductCard";
 
-// defining products
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  discountedPrice: number;
-  image: {
-    url: string;
-    alt: string;
-  };
-}
+const ProductContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+`;
 
 const HomePage: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductCardProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,8 +22,7 @@ const HomePage: React.FC = () => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        const { data }: { data: Product[] } = await response.json();
-        console.log("Fetched Products:", data);
+        const { data }: { data: ProductCardProps[] } = await response.json();
         setProducts(data);
       } catch (err: any) {
         setError(err.message);
@@ -43,8 +38,13 @@ const HomePage: React.FC = () => {
   if (loading) return <p>Loading products...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  // temp
-  return <p>Products fetched successfully.</p>;
+  return (
+    <ProductContainer>
+      {products.map((product) => (
+        <ProductCard key={product.id} {...product} />
+      ))}
+    </ProductContainer>
+  );
 };
 
 export default HomePage;
