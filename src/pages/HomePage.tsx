@@ -1,3 +1,5 @@
+// This project is licensed under the MIT License - see the LICENSE file for details
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";

@@ -1,3 +1,5 @@
+// This project is licensed under the MIT License - see the LICENSE file for details
+
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -107,7 +109,7 @@ const Header: React.FC = () => {
       </StyledNav>
 
       <ActionsWrapper>
-        <Cart itemCount={cartItemCount} />
+        <Cart />
         <HamburgerIcon $isOpen={isOpen} onClick={toggleMenu}>
           <div />
           <div />

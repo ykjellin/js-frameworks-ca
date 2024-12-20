@@ -1,9 +1,9 @@
+// This project is licensed under the MIT License - see the LICENSE file for details
+
 import React from "react";
 import styled from "styled-components";
-
-interface CartProps {
-  itemCount: number;
-}
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const CartContainer = styled.div`
   position: relative;
@@ -28,11 +28,14 @@ const ItemCountOverlay = styled.span`
   padding: 0.2rem 0.4rem;
 `;
 
-const Cart: React.FC<CartProps> = ({ itemCount }) => {
+const Cart: React.FC = () => {
+  const navigate = useNavigate();
+  const { cart } = useCart();
+
   return (
-    <CartContainer>
+    <CartContainer onClick={() => navigate("/cart")}>
       <Icon>🛒</Icon>
-      {itemCount > 0 && <ItemCountOverlay>{itemCount}</ItemCountOverlay>}
+      {cart.length > 0 && <ItemCountOverlay>{cart.length}</ItemCountOverlay>}
     </CartContainer>
   );
 };
