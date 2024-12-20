@@ -13,8 +13,9 @@ interface SearchBarProps {
 
 const SearchContainer = styled.div`
   position: relative;
-  max-width: 600px;
+  max-width: 50vw;
   margin: 2rem auto;
+  z-index: 1;
 `;
 
 const SearchInput = styled.input`
@@ -23,6 +24,7 @@ const SearchInput = styled.input`
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
+  z-index: 1;
 `;
 
 const SuggestionsList = styled.ul`
@@ -37,6 +39,7 @@ const SuggestionsList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0;
+  z-index: 10;
 
   li {
     padding: 0.8rem;

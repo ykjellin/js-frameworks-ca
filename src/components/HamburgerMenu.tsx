@@ -2,12 +2,14 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
+import MenuPortal from "./MenuPortal";
 
 const MenuContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  z-index: 9999;
 `;
 
 const HamburgerIcon = styled.div<{ isOpen: boolean }>`
@@ -36,13 +38,14 @@ const NavMenu = styled.ul<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   background: #282c34;
-  position: absolute;
+  position: fixed;
   top: 50px;
   right: 0;
   width: 200px;
   padding: 1rem;
   border-radius: 8px;
   list-style: none;
+  z-index: 9999;
   transform: ${({ isOpen }) =>
     isOpen ? "translateY(0)" : "translateY(-200%)"};
   transition: transform 0.3s ease-in-out;
@@ -69,24 +72,31 @@ const HamburgerMenu: React.FC = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <MenuContainer>
+    <>
       <div onClick={toggleMenu}>
         <HamburgerIcon isOpen={isOpen} />
         <HamburgerIcon isOpen={isOpen} />
         <HamburgerIcon isOpen={isOpen} />
       </div>
-      <NavMenu isOpen={isOpen}>
-        <li>
-          <a href="#home">Home</a>
-        </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-      </NavMenu>
-    </MenuContainer>
+
+      {isOpen && (
+        <MenuPortal>
+          <MenuContainer>
+            <NavMenu isOpen={isOpen}>
+              <li>
+                <a href="#home">Home</a>
+              </li>
+              <li>
+                <a href="#about">About</a>
+              </li>
+              <li>
+                <a href="#contact">Contact</a>
+              </li>
+            </NavMenu>
+          </MenuContainer>
+        </MenuPortal>
+      )}
+    </>
   );
 };
 
