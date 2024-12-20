@@ -7,33 +7,12 @@ import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import ContactPage from "./pages/ContactPage";
 import { CartProvider } from "./context/CartContext";
-import { createGlobalStyle } from "styled-components";
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .Wrapper___1kRcF, input, .SearchInput {
-    position: relative !important; 
-    z-index: 1 !important; 
-  }
-
-  ul.NavMenu {
-    position: fixed !important;
-    top: 50px;
-    right: 0;
-    z-index: 9999 !important;
-    transform: translateY(0) !important;
-  }
-`;
+import { ThemeProvider } from "styled-components";
+import { theme } from "./theme/theme";
 
 const App: React.FC = () => {
   return (
-    <>
-      <GlobalStyle />
+    <ThemeProvider theme={theme}>
       <CartProvider>
         <BrowserRouter>
           <Routes>
@@ -88,7 +67,7 @@ const App: React.FC = () => {
           </Routes>
         </BrowserRouter>
       </CartProvider>
-    </>
+    </ThemeProvider>
   );
 };
 
