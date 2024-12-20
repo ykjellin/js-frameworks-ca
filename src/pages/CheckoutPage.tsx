@@ -47,8 +47,39 @@ const CheckoutButton = styled.button`
   }
 `;
 
+const RemoveButton = styled.button`
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 1rem;
+
+  &:hover {
+    background: #c82333;
+  }
+`;
+
+const ClearCartButton = styled.button`
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #c82333;
+  }
+`;
+
 const CheckoutPage: React.FC = () => {
-  const { cart } = useCart();
+  const { cart, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate();
 
   const getTotalPrice = () => {
@@ -62,6 +93,7 @@ const CheckoutPage: React.FC = () => {
 
   const handleCheckout = () => {
     navigate("/checkout-success");
+    clearCart();
   };
 
   return (
@@ -74,6 +106,9 @@ const CheckoutPage: React.FC = () => {
               <ProductItem key={product.id}>
                 <span>{product.title}</span>
                 <span>${product.discountedPrice.toFixed(2)}</span>
+                <RemoveButton onClick={() => removeFromCart(product.id)}>
+                  Remove
+                </RemoveButton>
               </ProductItem>
             ))}
           </ProductList>
@@ -86,6 +121,7 @@ const CheckoutPage: React.FC = () => {
           <CheckoutButton onClick={handleCheckout}>
             Proceed to Checkout
           </CheckoutButton>
+          <ClearCartButton onClick={clearCart}>Clear Cart</ClearCartButton>
         </>
       ) : (
         <p>Your cart is empty.</p>
