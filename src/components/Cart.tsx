@@ -33,7 +33,7 @@ const Cart: React.FC = () => {
   const { cart } = useCart();
 
   return (
-    <CartContainer onClick={() => navigate("/cart")}>
+    <CartContainer onClick={() => navigate("/checkout")}>
       <Icon>🛒</Icon>
       {cart.length > 0 && <ItemCountOverlay>{cart.length}</ItemCountOverlay>}
     </CartContainer>
