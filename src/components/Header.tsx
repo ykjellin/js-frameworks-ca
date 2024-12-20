@@ -109,7 +109,7 @@ const Header: React.FC = () => {
       </StyledNav>
 
       <ActionsWrapper>
-        <Cart itemCount={cartItemCount} />
+        <Cart />
         <HamburgerIcon $isOpen={isOpen} onClick={toggleMenu}>
           <div />
           <div />

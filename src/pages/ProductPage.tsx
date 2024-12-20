@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { FaStar } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
 
 interface ProductDetails {
   id: string;
@@ -60,8 +61,24 @@ const StarRating = styled.div`
   margin: 0.5rem 0;
 `;
 
+const AddToCartButton = styled.button`
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { addToCart } = useCart();
   const [product, setProduct] = useState<ProductDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -91,6 +108,13 @@ const ProductPage: React.FC = () => {
   if (error) return <p>Error: {error}</p>;
   if (!product) return <p>Product not found</p>;
 
+  const discountPercentage =
+    product.price !== product.discountedPrice
+      ? Math.round(
+          ((product.price - product.discountedPrice) / product.price) * 100
+        )
+      : 0;
+
   return (
     <ProductContainer>
       <ProductImage
@@ -108,11 +132,19 @@ const ProductPage: React.FC = () => {
             <span style={{ color: "red", marginLeft: "1rem" }}>
               ${product.discountedPrice.toFixed(2)}
             </span>
+            <span style={{ marginLeft: "1rem", color: "green" }}>
+              Save {discountPercentage}%
+            </span>
           </>
         ) : (
           <span>${product.price.toFixed(2)}</span>
         )}
       </p>
+
+      <AddToCartButton onClick={() => addToCart(product)}>
+        Add to Cart
+      </AddToCartButton>
+
       <h2>Customer Reviews</h2>
       <ReviewSection>
         {product.reviews.length > 0 ? (
