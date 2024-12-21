@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { FaStar } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
+import StatusMessage from "../components/StatusMessage";
 
 interface ProductDetails {
   id: string;
@@ -104,9 +105,13 @@ const ProductPage: React.FC = () => {
     fetchProduct();
   }, [id]);
 
-  if (loading) return <p>Loading product details...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!product) return <p>Product not found</p>;
+  if (loading)
+    return (
+      <StatusMessage message="Loading product details..." type="loading" />
+    );
+  if (error) return <StatusMessage message={`Error: ${error}`} type="error" />;
+  if (!product)
+    return <StatusMessage message="Product not found" type="error" />;
 
   const discountPercentage =
     product.price !== product.discountedPrice
