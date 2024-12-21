@@ -48,10 +48,11 @@ const ReviewSection = styled.div`
 `;
 
 const ReviewCard = styled.div`
-  background: #f9f9f9;
+  background: ${(props) => props.theme.colors.secondary};
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
+  box-shadow: ${(props) => props.theme.shadows.card};
 `;
 
 const StarRating = styled.div`
@@ -64,12 +65,11 @@ const StarRating = styled.div`
 const AddToCartButton = styled.button`
   margin-top: 2rem;
   padding: 0.8rem 1.5rem;
-  background-color: #007bff;
-  color: white;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
+  box-shadow: ${(props) => props.theme.shadows.button};
 
   &:hover {
     background-color: #0056b3;
