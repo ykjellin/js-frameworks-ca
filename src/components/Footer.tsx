@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const FooterContainer = styled.footer`
-  background-color: #282c34;
+  background-color: ${(props) => props.theme.colors.primary};
   color: white;
   padding: 1.5rem 2rem;
   text-align: center;
@@ -20,7 +20,7 @@ const FooterLinks = styled.div`
 
 const StyledLink = styled(NavLink)`
   text-decoration: none;
-  color: white;
+  color: ${(props) => props.theme.colors.secondary};
   font-size: 1rem;
 
   &.active {
@@ -35,7 +35,7 @@ const StyledLink = styled(NavLink)`
 
 const Copyright = styled.p`
   font-size: 0.9rem;
-  color: #cccccc;
+  color: ${(props) => props.theme.colors.secondary};
 `;
 
 const Footer: React.FC = () => {

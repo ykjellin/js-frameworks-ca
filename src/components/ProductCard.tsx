@@ -22,14 +22,14 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: ${(props) => props.theme.fonts.primary};
   background: ${(props) => props.theme.colors.secondary};
   padding: 1rem;
   border: 2px solid ${(props) => props.theme.colors.primary};
-  border-radius: 2px;
+  border-radius: ${(props) => props.theme.borderRadius};
   text-align: center;
   height: 100%;
   transition: transform 0.2s;
+  box-shadow: ${(props) => props.theme.shadows.card};
 
   &:hover {
     transform: translateY(-5px);
@@ -41,7 +41,7 @@ const Card = styled.div`
     object-fit: cover;
     margin-bottom: 1rem;
     border: 1px solid;
-    border-radius: 2px;
+    border-radius: ${(props) => props.theme.borderRadius};
   }
 
   h2 {
@@ -51,7 +51,6 @@ const Card = styled.div`
   }
 
   .description {
-    color: ${(props) => props.theme.colors.text};
     margin: 0.5rem 0;
     height: 3rem;
     overflow: hidden;
@@ -88,15 +87,13 @@ const Card = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
     color: white;
     padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
+
     text-decoration: none;
     font-size: 1rem;
     margin-top: 1rem;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: ${(props) => props.theme.colors.hover};
     }
   }
 `;

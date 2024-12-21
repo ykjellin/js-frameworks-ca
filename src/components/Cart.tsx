@@ -13,6 +13,7 @@ const CartContainer = styled.div`
 `;
 
 const Icon = styled.div`
+  color: ${(props) => props.theme.colors.secondary};
   font-size: 1.5rem;
 `;
 

@@ -7,6 +7,7 @@ export const theme = {
     secondary: "#ebe5a9",
     background: "#FFFDE7",
     text: "#000000",
+    hover: "#0056b3",
   },
   fonts: {
     primary: "'Montserrat', sans-serif",
@@ -16,5 +17,13 @@ export const theme = {
     small: "0.5rem",
     medium: "1rem",
     large: "2rem",
+  },
+  shadows: {
+    card: "0 4px 6px rgba(0, 0, 0, 0.16)",
+    button: "0 2px 3px rgba(0, 0, 0, 0.12)",
+  },
+  borderRadius: "4px",
+  border: {
+    light: "1px solid #ddd",
   },
 };

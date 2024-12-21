@@ -27,7 +27,7 @@ const SearchInput = styled.input`
   padding: 0.8rem;
   font-size: 1rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: ${(props) => props.theme.borderRadius};
   z-index: 1;
 `;
 
@@ -38,6 +38,7 @@ const SuggestionsList = styled.ul`
   width: 100%;
   background: white;
   border: 1px solid #ddd;
+  border-radius: ${(props) => props.theme.borderRadius};
   max-height: 200px;
   overflow-y: auto;
   list-style-type: none;

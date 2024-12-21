@@ -6,9 +6,12 @@ import { useCart, Product } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
 const CheckoutContainer = styled.div`
-  padding: 2rem;
+  padding: ${({ theme }) => theme.spacing.large};
   max-width: 800px;
   margin: 0 auto;
+  background-color: ${({ theme }) => theme.colors.background};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  box-shadow: ${({ theme }) => theme.shadows.card};
 `;
 
 const ProductList = styled.ul`
@@ -19,8 +22,8 @@ const ProductList = styled.ul`
 const ProductItem = styled.li`
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
-  border-bottom: 1px solid #ddd;
+  padding: ${({ theme }) => theme.spacing.medium} 0;
+  border-bottom: ${({ theme }) => theme.border.light};
 `;
 
 const TotalContainer = styled.div`
@@ -28,37 +31,40 @@ const TotalContainer = styled.div`
   justify-content: space-between;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 2rem;
+  margin-top: ${({ theme }) => theme.spacing.large};
 `;
 
 const CheckoutButton = styled.button`
   width: 100%;
-  padding: 1rem;
-  margin-top: 2rem;
-  background-color: #28a745;
+  padding: ${({ theme }) => theme.spacing.medium};
+  margin-top: ${({ theme }) => theme.spacing.medium};
+  background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   font-size: 1.2rem;
   cursor: pointer;
+  box-shadow: ${({ theme }) => theme.shadows.button};
 
   &:hover {
-    background-color: #218838;
+    background-color: ${({ theme }) => theme.colors.hover};
   }
 `;
 
 const RemoveButton = styled.button`
-  background: #dc3545;
-  color: white;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.text};
   border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  padding: ${({ theme }) => theme.spacing.small}
+    ${({ theme }) => theme.spacing.medium};
   font-size: 0.9rem;
   cursor: pointer;
-  margin-left: 1rem;
+  margin-left: ${({ theme }) => theme.spacing.small};
 
   &:hover {
-    background: #c82333;
+    background-color: ${({ theme }) => theme.colors.hover};
+    color: white;
   }
 `;
 
