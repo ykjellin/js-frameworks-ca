@@ -9,12 +9,14 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #282c34;
+  background-color: ${(props) => props.theme.colors.primary};
   color: white;
   position: relative;
 `;
 
 const Title = styled.h1`
+  font-family: ${(props) => props.theme.fonts.secondary};
+  color: ${(props) => props.theme.colors.secondary};
   margin-right: auto;
 `;
 
@@ -36,9 +38,10 @@ const StyledNav = styled.nav<{ $isOpen: boolean }>`
 `;
 
 const StyledLink = styled(NavLink)`
+  font-family: ${(props) => props.theme.fonts.primary};
   text-decoration: none;
   color: white;
-  font-size: 1rem;
+  font-size: 1.5rem;
 
   &.active {
     font-weight: bold;
@@ -97,7 +100,7 @@ const Header: React.FC = () => {
 
   return (
     <HeaderContainer>
-      <Title>My Website</Title>
+      <Title>Crabstore</Title>
 
       <StyledNav $isOpen={isOpen}>
         <StyledLink to="/" end>

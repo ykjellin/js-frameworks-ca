@@ -16,6 +16,10 @@ const SearchContainer = styled.div`
   max-width: 50vw;
   margin: 2rem auto;
   z-index: 1;
+
+  @media (max-width: 768px) {
+    margin: 1rem 0 1rem 1rem;
+  }
 `;
 
 const SearchInput = styled.input`
