@@ -1,67 +1,64 @@
-// This project is licensed under the MIT License - see the LICENSE file for details
-
 import React, { useState } from "react";
 import styled from "styled-components";
 
+// Scoped styles for the ContactForm
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: ${({ theme }) => theme.spacing.large};
   width: 100%;
 `;
 
 const Label = styled.label`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing.small};
 `;
 
-const Input = styled.input`
+const ContactInput = styled.input`
   width: 100%;
   box-sizing: border-box;
-  padding: 0.8rem;
+  padding: ${({ theme }) => theme.spacing.medium};
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: ${({ theme }) => theme.border.light};
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
-const TextArea = styled.textarea`
+const ContactTextArea = styled.textarea`
   width: 100%;
   box-sizing: border-box;
-  padding: 0.8rem;
+  padding: ${({ theme }) => theme.spacing.medium};
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: ${({ theme }) => theme.border.light};
+  border-radius: ${({ theme }) => theme.borderRadius};
   min-height: 150px;
 `;
 
 const SubmitButton = styled.button`
-  width: 100%;
-  padding: 1rem;
-  background-color: #007bff;
+  background-color: ${({ theme }) => theme.colors.primary};
   color: white;
-  font-size: 1.2rem;
+  padding: ${({ theme }) => theme.spacing.medium};
   border: none;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  font-size: 1.2rem;
   cursor: pointer;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${({ theme }) => theme.colors.hover};
   }
 `;
 
 const Error = styled.p`
   color: red;
   font-size: 0.9rem;
-  margin: 0.5rem 0 0 0;
+  margin: ${({ theme }) => theme.spacing.small} 0 0 0;
 `;
 
 const RequiredMark = styled.span`
   color: red;
-  margin-left: 0.2rem;
+  margin-left: ${({ theme }) => theme.spacing.small};
   font-size: 1.2rem;
   font-weight: bold;
 `;
@@ -121,7 +118,6 @@ const ContactForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log(formData);
       alert("Form submitted successfully!");
       setFormData({ fullName: "", subject: "", email: "", body: "" });
     }
@@ -138,7 +134,7 @@ const ContactForm: React.FC = () => {
     <Form onSubmit={handleSubmit}>
       <Label>
         Full Name <RequiredMark>*</RequiredMark>
-        <Input
+        <ContactInput
           type="text"
           name="fullName"
           value={formData.fullName}
@@ -149,7 +145,7 @@ const ContactForm: React.FC = () => {
 
       <Label>
         Subject <RequiredMark>*</RequiredMark>
-        <Input
+        <ContactInput
           type="text"
           name="subject"
           value={formData.subject}
@@ -160,7 +156,7 @@ const ContactForm: React.FC = () => {
 
       <Label>
         Email <RequiredMark>*</RequiredMark>
-        <Input
+        <ContactInput
           type="email"
           name="email"
           value={formData.email}
@@ -171,7 +167,11 @@ const ContactForm: React.FC = () => {
 
       <Label>
         Message <RequiredMark>*</RequiredMark>
-        <TextArea name="body" value={formData.body} onChange={handleChange} />
+        <ContactTextArea
+          name="body"
+          value={formData.body}
+          onChange={handleChange}
+        />
         {errors.body && <Error>{errors.body}</Error>}
       </Label>
 
