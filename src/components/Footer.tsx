@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
         <StyledLink to="/contact">Contact</StyledLink>
       </FooterLinks>
       <Copyright>
-        &copy; {new Date().getFullYear()} Placeholder. All rights reserved.
+        &copy; {new Date().getFullYear()} Crabstore. All rights reserved.
       </Copyright>
     </FooterContainer>
   );
