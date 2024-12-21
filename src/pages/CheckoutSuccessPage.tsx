@@ -22,7 +22,7 @@ const SuccessMessage = styled.h1`
 const BackToStore = styled(Link)`
   margin-top: 2rem;
   padding: 1rem 2rem;
-  background-color: #007bff;
+  background-color: ${(props) => props.theme.colors.primary};
   color: white;
   text-decoration: none;
   border-radius: 4px;
