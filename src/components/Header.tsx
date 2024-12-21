@@ -38,9 +38,8 @@ const StyledNav = styled.nav<{ $isOpen: boolean }>`
 `;
 
 const StyledLink = styled(NavLink)`
-  font-family: ${(props) => props.theme.fonts.primary};
   text-decoration: none;
-  color: white;
+  color: ${(props) => props.theme.colors.secondary};
   font-size: 1.5rem;
 
   &.active {
@@ -64,11 +63,12 @@ const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
   display: none;
   flex-direction: column;
   cursor: pointer;
+  color: ${(props) => props.theme.colors.secondary};
 
   div {
     width: 25px;
     height: 3px;
-    background: white;
+    background: ${(props) => props.theme.colors.secondary};
     margin: 4px 0;
     transition: 0.4s;
   }
@@ -106,8 +106,6 @@ const Header: React.FC = () => {
         <StyledLink to="/" end>
           Home
         </StyledLink>
-        <StyledLink to="/product/1">Product</StyledLink>
-        <StyledLink to="/cart">Cart</StyledLink>
         <StyledLink to="/contact">Contact</StyledLink>
       </StyledNav>
 

@@ -15,7 +15,7 @@ const MenuContainer = styled.div`
 const HamburgerIcon = styled.div<{ isOpen: boolean }>`
   width: 30px;
   height: 3px;
-  background: white;
+  background: ${(props) => props.theme.colors.secondary};
   margin: 5px 0;
   transition: all 0.3s ease-in-out;
 
