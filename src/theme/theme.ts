@@ -3,9 +3,9 @@ import "@fontsource/montserrat";
 
 export const theme = {
   colors: {
-    primary: "#2C3E50",
-    secondary: "#F1F1F1",
-    background: "#FFFFFF",
+    primary: "#212529",
+    secondary: "#ebe5a9",
+    background: "#FFFDE7",
     text: "#000000",
   },
   fonts: {
