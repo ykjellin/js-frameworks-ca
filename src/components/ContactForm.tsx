@@ -121,6 +121,7 @@ const ContactForm: React.FC = () => {
       console.log("Form Data:", formData);
       alert("Form submitted successfully!");
       setFormData({ fullName: "", subject: "", email: "", body: "" });
+      setErrors({ fullName: "", subject: "", email: "", body: "" });
     }
   };
 
