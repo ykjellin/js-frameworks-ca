@@ -1,46 +1,156 @@
-# Getting Started with Create React App
+# Crabstore - Elegant Auctions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **Crabstore**, an ecom website built with React, TypeScript, and styled-components. This project was designed as part of a learning exercise in modern frontend frameworks and practices, providing users with a seamless shopping and auction experience.
 
-## Available Scripts
+[Live Demo](https://crabstore.netlify.app)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Table of Contents**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Available Scripts](#available-scripts)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## **About the Project**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Crabstore is a ecom site that allows users to:
 
-### `npm run build`
+- View a list of products on the homepage.
+- Search for products using a lookahead search bar.
+- View individual product details with reviews.
+- Add items to the shopping cart.
+- Complete a checkout process and see a success page.
+- Contact the site via a contact form with validation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project demonstrates the use of modern React practices, including React Router for navigation, custom hooks for data fetching, and context for state management.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **Features**
 
-### `npm run eject`
+- **Homepage**:
+  - Displays a list of products fetched from a REST API.
+  - Lookahead search bar for quick product searches.
+- **Product Page**:
+  - Dynamic product details fetched based on URL parameters.
+  - Customer reviews and discount calculations.
+- **Shopping Cart**:
+  - Displays the number of items in the cart.
+  - Allows adding and removing products including a button to clear cart.
+- **Checkout**:
+  - Simple checkout page with a success confirmation.
+- **Contact Page**:
+  - Contact form with validation for required fields.
+  - Validation data logged to console.
+- **Responsive Design**:
+  - Mobile-first design for a great user experience on all devices.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## **Technologies Used**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=for-the-badge) (18.3.1)
+- ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
+- ![React Router](https://img.shields.io/badge/-React_Router-CA4245?logo=react-router&logoColor=white&style=for-the-badge) (7.0.2)
+- ![Styled-components](https://img.shields.io/badge/-Styled--components-DB7093?logo=styled-components&logoColor=white&style=for-the-badge) (6.1.13)
+- ![Netlify](https://img.shields.io/badge/-Netlify-00C7B7?logo=netlify&logoColor=white&style=for-the-badge) (deployment)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## **Setup and Installation**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To set up the project locally, follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/your-username/crabstore.git
+   cd crabstore
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the Development Server**:
+
+   ```bash
+   npm start
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+4. **Build for Production**:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## **Available Scripts**
+
+- `npm start`: Runs the app in development mode.
+- `npm test`: Launches the test runner.
+- `npm run build`: Builds the app for production.
+- `npm run eject`: Ejects the app configuration (use with caution).
+
+---
+
+## **Project Structure**
+
+```
+src/
+  ├── components/        # Reusable UI components
+  ├── context/           # Context for global state management
+  ├── hooks/             # Custom React hooks
+  ├── pages/             # Page-level components (Home, Product, etc.)
+  ├── theme/             # Global and theme styles
+  ├── App.tsx            # Main application component
+  └── index.tsx          # Entry point
+```
+
+---
+
+## **Contributing**
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature-name"
+   ```
+4. Push your branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
+
+---
+
+## **License**
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## **Acknowledgments**
+
+- This project was bootstrapped with [Create React App](https://create-react-app.dev/).
+- Special thanks to [Netlify](https://www.netlify.com/) for hosting.
+
+---
