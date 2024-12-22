@@ -44,11 +44,12 @@ This project demonstrates the use of modern React practices, including React Rou
   - Customer reviews and discount calculations.
 - **Shopping Cart**:
   - Displays the number of items in the cart.
-  - Allows adding and removing products.
+  - Allows adding and removing products including a button to clear cart.
 - **Checkout**:
   - Simple checkout page with a success confirmation.
 - **Contact Page**:
   - Contact form with validation for required fields.
+  - Validation data logged to console.
 - **Responsive Design**:
   - Mobile-first design for a great user experience on all devices.
 
