@@ -6,6 +6,7 @@ import ProductPage from "./pages/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import ContactPage from "./pages/ContactPage";
+import AboutUs from "./pages/AboutUsPage";
 import { CartProvider } from "./context/CartContext";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme/theme";
@@ -56,6 +57,14 @@ const App: React.FC = () => {
                 element={
                   <Layout>
                     <ContactPage />
+                  </Layout>
+                }
+              />
+              <Route
+                path="/about-us"
+                element={
+                  <Layout>
+                    <AboutUs />
                   </Layout>
                 }
               />
