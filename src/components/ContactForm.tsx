@@ -118,6 +118,7 @@ const ContactForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      console.log("Form Data:", formData);
       alert("Form submitted successfully!");
       setFormData({ fullName: "", subject: "", email: "", body: "" });
     }
