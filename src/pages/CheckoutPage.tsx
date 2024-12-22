@@ -38,6 +38,24 @@ const ProductItem = styled.li`
   }
 `;
 
+const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+const OriginalPrice = styled.span`
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  color: ${({ theme }) => theme.colors.textLight || "#999"};
+`;
+
+const DiscountedPrice = styled.span`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
 const TotalContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -123,7 +141,15 @@ const CheckoutPage: React.FC = () => {
             {cart.map((product) => (
               <ProductItem key={product.id}>
                 <span>{product.title}</span>
-                <span>${product.discountedPrice.toFixed(2)}</span>
+                <PriceContainer>
+                  {product.price !== product.discountedPrice &&
+                    product.price && (
+                      <OriginalPrice>${product.price.toFixed(2)}</OriginalPrice>
+                    )}
+                  <DiscountedPrice>
+                    ${product.discountedPrice.toFixed(2)}
+                  </DiscountedPrice>
+                </PriceContainer>
                 <RemoveButton onClick={() => removeFromCart(product.id)}>
                   Remove
                 </RemoveButton>
