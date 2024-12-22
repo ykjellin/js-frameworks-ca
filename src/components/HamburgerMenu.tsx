@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import MenuPortal from "./MenuPortal";
 
 const MenuContainer = styled.div`
@@ -84,13 +85,10 @@ const HamburgerMenu: React.FC = () => {
           <MenuContainer>
             <NavMenu isOpen={isOpen}>
               <li>
-                <a href="#home">Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
+                <NavLink to="/contact">Contact</NavLink>
               </li>
             </NavMenu>
           </MenuContainer>

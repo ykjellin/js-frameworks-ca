@@ -22,6 +22,13 @@ const SearchContainer = styled.div`
   }
 `;
 
+const SearchLabel = styled.label`
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+`;
+
 const SearchInput = styled.input`
   width: 100%;
   padding: 0.8rem;
@@ -78,7 +85,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ products, onProductSelect }) => {
 
   return (
     <SearchContainer>
+      <SearchLabel htmlFor="search-input">Search Products</SearchLabel>
       <SearchInput
+        id="search-input"
         type="text"
         value={query}
         onChange={handleInputChange}
