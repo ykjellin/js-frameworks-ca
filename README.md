@@ -149,7 +149,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## **Acknowledgments**
 
-- This project was made with [Create React App](https://create-react-app.dev/).
+- This project was bootstrapped with [Create React App](https://create-react-app.dev/).
 - Special thanks to [Netlify](https://www.netlify.com/) for hosting.
 
 ---
