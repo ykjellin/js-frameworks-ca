@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
   return (
     <FooterContainer>
       <FooterLinks>
-        <StyledLink to="/about">About Us</StyledLink>
+        <StyledLink to="/about-us">About Us</StyledLink>
         <StyledLink to="/contact">Contact</StyledLink>
       </FooterLinks>
       <Copyright>
