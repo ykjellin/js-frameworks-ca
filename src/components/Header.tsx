@@ -94,7 +94,6 @@ const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const cartItemCount = 3; // Replace later
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
