@@ -3,7 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useCart, Product } from "../context/CartContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const CheckoutContainer = styled.div`
   padding: ${({ theme }) => theme.spacing.large};
@@ -62,6 +62,16 @@ const TotalContainer = styled.div`
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: ${({ theme }) => theme.spacing.large};
+`;
+
+const PlainLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  font-weight: normal;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const CheckoutButton = styled.button`
@@ -140,7 +150,11 @@ const CheckoutPage: React.FC = () => {
           <ProductList>
             {cart.map((product) => (
               <ProductItem key={product.id}>
-                <span>{product.title}</span>
+                <span>
+                  <PlainLink to={`/product/${product.id}`}>
+                    {product.title}
+                  </PlainLink>
+                </span>
                 <PriceContainer>
                   {product.price !== product.discountedPrice &&
                     product.price && (
