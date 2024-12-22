@@ -22,8 +22,20 @@ const ProductList = styled.ul`
 const ProductItem = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: ${({ theme }) => theme.spacing.medium} 0;
   border-bottom: ${({ theme }) => theme.border.light};
+
+  span:nth-child(1) {
+    flex: 2;
+  }
+  span:nth-child(2) {
+    flex: 1;
+    text-align: right;
+  }
+  button {
+    margin-left: ${({ theme }) => theme.spacing.small};
+  }
 `;
 
 const TotalContainer = styled.div`
