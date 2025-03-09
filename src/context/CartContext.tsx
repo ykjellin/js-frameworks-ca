@@ -17,8 +17,8 @@ export interface Product {
 
 interface CartContextType {
   cart: Product[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (productId: string) => void;
+  addToCart: (_product: Product) => void;
+  removeFromCart: (_productId: string) => void;
   clearCart: () => void;
 }
 
@@ -44,13 +44,13 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product: Product) => {
-    setCart((prev) => [...prev, product]);
-    alert(`${product.title} added to the cart.`);
+  const addToCart = (_product: Product) => {
+    setCart((prev) => [...prev, _product]);
+    alert(`${_product.title} added to the cart.`);
   };
 
-  const removeFromCart = (productId: string) => {
-    setCart((prev) => prev.filter((product) => product.id !== productId));
+  const removeFromCart = (_productId: string) => {
+    setCart((prev) => prev.filter((product) => product.id !== _productId));
   };
 
   const clearCart = () => {

@@ -28,9 +28,10 @@ const HomePage: React.FC = () => {
   return (
     <>
       <SearchBar
-        products={products.map(({ id, title }) => ({ id, title }))}
-        onProductSelect={(id) => navigate(`/product/${id}`)}
+        products={products.map(({ id, title }) => ({ _id: id, title }))}
+        onProductSelect={(_id) => navigate(`/product/${_id}`)}
       />
+
       <ProductContainer>
         {products.map((product) => (
           <ProductCard key={product.id} {...product} />

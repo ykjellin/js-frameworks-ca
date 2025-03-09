@@ -1,5 +1,6 @@
 {
   "name": "js-frameworks-ca",
+  "type": "module",
   "version": "0.3.0",
   "private": true,
   "license": "MIT",
@@ -46,5 +47,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.5.3"
   }
 }

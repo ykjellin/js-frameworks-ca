@@ -95,8 +95,12 @@ const ProductPage: React.FC = () => {
         }
         const { data }: { data: ProductDetails } = await response.json();
         setProduct(data);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("An unknown error occurred.");
+        }
       } finally {
         setLoading(false);
       }
@@ -159,7 +163,7 @@ const ProductPage: React.FC = () => {
               <StarRating>
                 {[...Array(5)].map((_, index) => (
                   <FaStar
-                    key={index}
+                    key={`${review.id}-${index}`}
                     color={index < review.rating ? "#ffc107" : "#e4e5e9"}
                   />
                 ))}
