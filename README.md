@@ -1,5 +1,9 @@
 # Crabstore - JS-Framework-CA
 
+
+![Image](https://github.com/user-attachments/assets/9ea38b47-1cc1-48a7-90bf-6104221bce3e)
+---
+
 Welcome to **Crabstore**, an ecom website built with React, TypeScript, and styled-components. This project was designed as part of a learning exercise in modern frontend frameworks and practices, providing users with a seamless shopping and auction experience.
 
 [Live Demo](https://crabstore.netlify.app)
