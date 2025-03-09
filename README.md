@@ -1,4 +1,4 @@
-# Crabstore - Elegant Auctions
+# Crabstore - JS-Framework-CA
 
 Welcome to **Crabstore**, an ecom website built with React, TypeScript, and styled-components. This project was designed as part of a learning exercise in modern frontend frameworks and practices, providing users with a seamless shopping and auction experience.
 
