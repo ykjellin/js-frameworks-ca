@@ -5,10 +5,10 @@ import styled from "styled-components";
 
 interface SearchBarProps {
   products: {
-    id: string;
+    _id: string;
     title: string;
   }[];
-  onProductSelect: (id: string) => void;
+  onProductSelect: (_id: string) => void;
 }
 
 const SearchContainer = styled.div`
@@ -66,7 +66,7 @@ const SuggestionsList = styled.ul`
 const SearchBar: React.FC<SearchBarProps> = ({ products, onProductSelect }) => {
   const [query, setQuery] = useState<string>("");
   const [filteredProducts, setFilteredProducts] = useState<
-    { id: string; title: string }[]
+    { _id: string; title: string }[]
   >([]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -96,7 +96,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ products, onProductSelect }) => {
       {filteredProducts.length > 0 && (
         <SuggestionsList>
           {filteredProducts.map((product) => (
-            <li key={product.id} onClick={() => onProductSelect(product.id)}>
+            <li key={product._id} onClick={() => onProductSelect(product._id)}>
               {product.title}
             </li>
           ))}

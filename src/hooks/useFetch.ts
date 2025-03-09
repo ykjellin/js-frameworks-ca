@@ -12,22 +12,30 @@ export const useFetch = <T>(url: string): FetchState<T> => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const isMounted = true;
+
     const fetchData = async () => {
       try {
-        setLoading(true);
         const response = await fetch(url);
-
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const result = await response.json();
 
-        setData(result.data || ([] as unknown as T));
-      } catch (err: any) {
-        setError(err.message || "An error occurred");
+        if (isMounted) {
+          setData(result.data || ([] as unknown as T));
+        }
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("An unknown error occurred");
+        }
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
 
